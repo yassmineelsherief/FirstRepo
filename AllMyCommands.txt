@@ -1,0 +1,115 @@
+moga@mogaa MINGW64 ~/Desktop/files
+$ git init
+Initialized empty Git repository in C:/Users/moga/Desktop/files/.git/
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git add first.txt
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git add second.txt
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git add third.txt
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git commit -m " The three files are in the staging area"
+[master (root-commit) 75fd369]  The three files are in the staging area
+ 3 files changed, 188 insertions(+)
+ create mode 100644 first.txt
+ create mode 100644 second.txt
+ create mode 100644 third.txt
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git rm second.txt
+rm 'second.txt'
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git commit -m " The second file has been removed "
+[master 5e9950f]  The second file has been removed
+ 1 file changed, 100 deletions(-)
+ delete mode 100644 second.txt
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git log
+commit 5e9950fdd7150454a23245108ec246b521b5fda6 (HEAD -> master)
+Author: yassmine mahmoud <yassmineelsheri@outlook.com>
+Date:   Mon Feb 12 17:15:52 2018 +0200
+
+     The second file has been removed
+
+commit 75fd3693798737969f29c445ecd58560c49a12ce
+Author: yassmine mahmoud <yassmineelsheri@outlook.com>
+Date:   Mon Feb 12 17:15:21 2018 +0200
+
+     The three files are in the staging area
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git revert  5e9950fdd7150454a232
+[master 6b3d0ab] Revert " The second file has been modified "
+ 1 file changed, 100 insertions(+)
+ create mode 100644 second.txt
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git remote add origin https://github.com/yassmineelsherief/FirstRepo.git
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git push -u origin master
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 8.34 KiB | 948.00 KiB/s, done.
+Total 8 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/yassmineelsherief/FirstRepo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ touch README.md
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git branch ReadMe
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git commit -m " The branch is now created "
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+        README.md
+
+nothing added to commit but untracked files present
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git checkout ReadMe
+Switched to branch 'ReadMe'
+
+moga@mogaa MINGW64 ~/Desktop/files (ReadMe)
+$ git commit -m " The switch from master to the branch is done "
+On branch ReadMe
+Untracked files:
+        README.md
+
+nothing added to commit but untracked files present
+
+moga@mogaa MINGW64 ~/Desktop/files (ReadMe)
+$ git add README.md
+
+moga@mogaa MINGW64 ~/Desktop/files (ReadMe)
+$ git commit -m " The README.md file is now added tot he branch "
+[ReadMe c7a3c43]  The README.md file is now added tot he branch
+ 1 file changed, 5 insertions(+)
+ create mode 100644 README.md
+
+moga@mogaa MINGW64 ~/Desktop/files (ReadMe)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+moga@mogaa MINGW64 ~/Desktop/files (master)
+$ git merge ReadMe
+Updating 6b3d0ab..c7a3c43
+Fast-forward
+ README.md | 5 +++++
+ 1 file changed, 5 insertions(+)
+ create mode 100644 README.md
